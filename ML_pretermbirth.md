@@ -1,3 +1,4 @@
+# import all libraries
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -12,8 +13,6 @@ import matplotlib.pyplot as plt
 
 # load the dataset
 data = pd.read_csv(r'C:\Users\91800\Dropbox\PC\Documents\Book2.csv')
-
-
 data['Outcome'] = data['Outcome'].map({'Preterm Birth': 0, 'Term Birth': 1})
 bins = (0, 2, 8)
 group_names = ['bad', 'good']
@@ -21,7 +20,6 @@ data['Outcome'] = pd.cut(data['Outcome'], bins=bins, labels=group_names)
 data['Outcome'].unique()
 label_quality=LabelEncoder()
 data['Outcome']= label_quality.fit_transform(data['Outcome'])
-
 data = data.dropna()
 
 data['Age'] = pd.to_numeric(data['Age'], errors='coerce')
